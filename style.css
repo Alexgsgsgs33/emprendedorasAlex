@@ -1,0 +1,107 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f3f3f3;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #003366;
+  color: white;
+  padding: 1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h1 {
+  margin: 0;
+}
+
+button, .volver {
+  background: #006699;
+  color: white;
+  border: none;
+  padding: 0.6em 1em;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+button:hover, .volver:hover {
+  background: #005580;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  padding: 1em;
+  justify-content: center;
+}
+
+.card {
+  background: white;
+  width: 300px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 1em;
+  display: none;
+}
+
+.card.active .card-content {
+  display: block;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 2em;
+  border-radius: 10px;
+  position: relative;
+  width: 90%;
+  max-width: 400px;
+}
+
+.close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+
+.error {
+  color: red;
+  margin-top: 0.5em;
+}
+
+#filtroSector {
+  padding: 1em;
+  text-align: center;
+}
