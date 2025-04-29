@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Registro de Emprendimientos</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Registrar Emprendimiento</h1>
+    <a href="index.html" class="volver">Ir a la Galería</a>
+  </header>
+
+  <form id="registroForm">
+    <input type="text" name="nombre" placeholder="Nombre del emprendimiento" required />
+    <input type="text" name="productos" placeholder="Productos o servicios" required />
+    <select name="sector" required>
+      <option value="">Seleccionar sector</option>
+      <option value="Artes">Artes</option>
+      <option value="Alimentos">Alimentos</option>
+      <option value="Moda">Moda</option>
+      <option value="Tecnología">Tecnología</option>
+    </select>
+    <input type="text" name="direccion" placeholder="Dirección" />
+    <input type="text" name="contacto" placeholder="Contacto (WhatsApp o Teléfono)" />
+    <input type="url" name="imagen" placeholder="URL de la imagen" />
+    <input type="url" name="foto" placeholder="URL de foto del dueño/a" />
+    <input type="url" name="facebook" placeholder="Facebook (URL)" />
+    <input type="url" name="instagram" placeholder="Instagram (URL)" />
+    <button type="submit">Registrar</button>
+  </form>
+
+  <script>
+    const form = document.getElementById("registroForm");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+      const data = {};
+      formData.forEach((value, key) => data[key] = value);
+
+      data.fechaRegistro = new Date().toLocaleDateString();
+
+      await fetch("https://sheetdb.io/api/v1/YOUR_API_KEY", {
+        method: "POST",
+        body: JSON.stringify({ data }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      alert("Emprendimiento registrado correctamente");
+      form.reset();
+    });
+  </script>
+</body>
+</html>
