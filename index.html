@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Galería de Emprendimientos</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Galería de Emprendimientos</h1>
+    <button id="adminButton">Administradores</button>
+  </header>
+
+  <div id="filtroSector">
+    <label for="sectorSelect">Filtrar por sector:</label>
+    <select id="sectorSelect">
+      <option value="todos">Todos</option>
+      <option value="Artes">Artes</option>
+      <option value="Alimentos">Alimentos</option>
+      <option value="Moda">Moda</option>
+      <option value="Tecnología">Tecnología</option>
+      <!-- Puedes agregar más sectores aquí -->
+    </select>
+  </div>
+
+  <main id="galeria"></main>
+
+  <!-- Modal de acceso para administradores -->
+  <div id="adminModal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="closeModal">&times;</span>
+      <h2>Iniciar sesión</h2>
+      <form id="loginForm">
+        <input type="text" id="username" placeholder="Usuario" required />
+        <input type="password" id="password" placeholder="Contraseña" required />
+        <button type="submit">Ingresar</button>
+      </form>
+      <p id="loginError" class="error"></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
